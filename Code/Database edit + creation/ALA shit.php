@@ -46,7 +46,7 @@ VALUES (:question, :answer)');
             Answer
             <Input type="radio" id="Answer" name='Answer' value='true' required>True</Input>
             <Input type="radio" id="Answer" name='Answer' value='false' required>False</Input><br>  
-          <input type="submit" id="submit" name="submit" value="Submit"><br><br>
+          <input type="submit" id="submit" name="submit" value="Submit">
     </form>
 </body> 
 </html>
