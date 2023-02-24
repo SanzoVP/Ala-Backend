@@ -15,7 +15,7 @@ INSERT INTO ALA_Questions_test.questions (question, answer) VALUES
     ('this is fasle', FALSE),
     ('Ehhh -Renzo (true)', TRUE),
     ('Anil is HOMOPHOBIC', TRUE),
-    ('Matthijs is smort', TRUE);
+    ('Matthijs is stupid and gay', TRUE);
 
 -- Query the table to get information about the responses
 SELECT *

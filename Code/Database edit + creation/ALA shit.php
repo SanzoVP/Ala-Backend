@@ -19,21 +19,22 @@
 
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $stmt = $conn->prepare('INSERT INTO Questions (question, answer)
+        $stmt = $conn->prepare('INSERT INTO questions (question, answer)
 VALUES (:question, :answer)');
 
         $stmt->bindParam(':question', $question);
         $stmt->bindParam(':answer', $answer);
 
         if(isset($_POST['submit'])){
-            if($_POST['Answer'] == true or false){
-                $answer = $_POST['Answer'];
+            if($_POST['Answer'] == 1 or 0){
                 $question = $_POST['Question'];
+                $answer = $_POST['Answer'];
+                $stmt->execute();
             } else {
-                echo 'Error: maybe try keeping the value to true or false';
+                echo 'Error: maybe try keeping the value to 1 or 0';
             }
         } else {
-            echo 'what';
+            echo 'Please fill in your question.';
         }
 
         } catch (PDOException $e) {
@@ -44,8 +45,18 @@ VALUES (:question, :answer)');
             Question<br>
           <input type="text" id="Question" name="Question" placeholder="Question" required><br><br>
             Answer
-            <Input type="radio" id="Answer" name='Answer' value='true' required>True</Input>
-            <Input type="radio" id="Answer" name='Answer' value='false' required>False</Input><br>  
+            <Input type="radio" id="Answer" name='Answer' value='1' required>True</Input>
+            <Input type="radio" id="Answer" name='Answer' value='0' required>False</Input><br>  
+          <input type="submit" id="submit" name="submit" value="Submit">
+    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <form method="POST">
+            Answer
+            <Input type="radio" id="Answer" name='Answer' value='1' required>True</Input>
+            <Input type="radio" id="Answer" name='Answer' value='0' required>False</Input><br>  
           <input type="submit" id="submit" name="submit" value="Submit">
     </form>
 </body> 
