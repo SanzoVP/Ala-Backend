@@ -52,7 +52,12 @@
     Grab all questions
     */
     
-    $stmt = $conn->query("SELECT * FROM questions");
+    /*
+    Mini problem fix:
+    Dont use SELECT *
+    use Select and then type out every name
+    */
+    $stmt = $conn->query("SELECT id, question, answer FROM questions");
     $data = $stmt->fetchAll();
 
     /*
@@ -72,11 +77,16 @@
                         Display 1 question per carousel
                         */
                         foreach($data as $question){
-                            echo '<div class="carousel-item">
+                            echo '<div>
                                 <h1>'. 
                                 $question['question']. 
-                                '</h1>
-                            </div>';
+                                '</h1>';
+
+                            echo '<form method="POST">
+                                    <input type="button" name="delete" value="' . $question['id'] . '">
+                                  </form>';
+                                  
+                            echo '</div>';
                         }
                     ?>
                 </article>
