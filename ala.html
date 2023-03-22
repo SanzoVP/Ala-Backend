@@ -1,0 +1,99 @@
+<!-- <?php -->
+<!-- // Starting a session -->
+<!-- session_start(); -->
+<!--  -->
+<!-- // Database connection startup -->
+<!-- $servername = "localhost"; -->
+<!-- $username = "root"; -->
+<!-- $password = ""; -->
+<!-- $dbname = "ALA_Questions_test"; -->
+<!--  -->
+<!-- try { -->
+    <!-- $db = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password); -->
+    <!-- $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); -->
+<!--  -->
+    <!-- // Making main db grab, Yes Matthijs you can actually just use one of these -->
+    <!-- $data = $db->prepare("SELECT * FROM questions"); -->
+    <!-- $data->execute(); -->
+<!--  -->
+<!-- } catch (PDOException $e) { -->
+    <!-- echo '<p class="white">Connection failed:</p><br>' . $e->getMessage(); -->
+    <!-- exit(); -->
+<!-- } -->
+<!-- // Ending the before the header code. -->
+<!-- ?> -->
+
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+
+<!--ZA AUTO PAGE REFRESHER 6 9000-->
+<meta http-equiv="refresh" content="5" > 
+<!--ZA AUTO PAGE REFRESHER 6 9000-->
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vragenlijst</title>
+<link rel="stylesheet" href="Ala.css">
+<script src="js/script.js"></script>
+</head>
+<body>
+<header>
+    <img src = "img/DALL·E 2023-03-10 11.24.35 - logo luxurious blue government website.png">
+    <nav>
+        <a class="white" href="">Bewerken</a>
+        <a class="white" href="">Home</a>
+        <a class="white" href="">Vragenlijst</a>
+    </nav>
+</header>
+<main>
+
+    <!--Question display-->
+    <section>
+        <article>
+            <!--Display Questions-->
+            <?php
+            // Grabs $data and makes it into an array
+
+            foreach($data as $data){
+                
+                echo '<h1 class="white">'.$data['question'].'</h1>';
+                echo '<h1 class="white">Points ='.$data['score'].'</h1>';
+            }
+            ?>
+        </article>
+    </section>
+    <!--Question Editor -->
+    <section>
+        <!-- Question Grabber-->
+        <article>
+
+        </article>
+    </section>
+</main>
+
+<footer>
+
+
+
+
+
+
+<!--Session Abort button-->
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<form method="POST">
+<h1>Abort session</h1>
+<input type="submit" name="abort" value="abort">
+    <!-- <?php -->
+        <!-- if(isset($_POST['abort'])){ -->
+        <!-- $_SESSION['abort'] = TRUE; -->
+    <!-- } -->
+    <!-- if(isset($_SESSION['abort'])){ -->
+        <!-- session_abort(); -->
+        <!-- } -->
+    <!-- ?> -->
+</form>
+</footer>
+</body>
+</html>
